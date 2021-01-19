@@ -2,20 +2,20 @@ import express from 'express';
 import { body } from 'express-validator';
 
 // Local Imports
-import controllers from '../controllers/users-controllers';
+import {login, signup, edit, guest, verify} from '../controller/users-controllers.js';
 
 const router = express.Router();
 
-router.post('/login', body('email').isEmail(), body('password').isLength({ min: 6, max: 20 }), controllers.login);
+router.post('/login', body('email').isEmail(), body('password').isLength({ min: 6, max: 20 }), login);
 router.post(
   '/signup',
   body('email').isEmail(),
   body('password').isLength({ min: 6, max: 20 }),
   body('username').isLength({ min: 3, max: 12 }),
-  controllers.signup
+  signup
 );
-router.put('/edit', body('username').isLength({ min: 3, max: 12 }), controllers.edit);
-router.post('/guest', controllers.guest);
-router.post('/verify', controllers.verify);
+router.put('/edit', body('username').isLength({ min: 3, max: 12 }), edit);
+router.post('/guest', guest);
+router.post('/verify', verify);
 
 export default router;

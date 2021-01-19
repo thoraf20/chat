@@ -1,7 +1,7 @@
 import  { validationResult } from 'express-validator';
 
 // Local Imports
-import Group from '../models/group';
+import Group from '../models/group.js';
 
 export const fetchGroups = async (req, res, next) => {
   // Fetch all groups

@@ -1,6 +1,6 @@
 // Local Imports
-import Bug from '../models/bug';
-import User from '../models/user';
+import Bug from '../models/bug.js';
+import User from '../models/user.js';
 
 export const fetch = async (req, res, next) => {};
 

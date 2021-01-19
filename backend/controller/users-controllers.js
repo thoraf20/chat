@@ -4,8 +4,8 @@ import { AvatarGenerator } from 'random-avatar-generator';
 const generator = new AvatarGenerator();
 
 // Local Imports
-import User from '../models/user';
-import { createToken, checkToken } from '../utils/token';
+import User from '../models/user.js';
+import { createToken, checkToken } from '../utils/token.js';
 
 export const findUserWithEmail = async email => {
   let user;

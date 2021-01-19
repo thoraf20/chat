@@ -1,9 +1,9 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 // Local Imports
-import Message from '../models/message';
-import Group from '../models/group';
-import User from '../models/user';
+import Message from '../models/message.js';
+import Group from '../models/group.js';
+import User from '../models/user.js';
 
 export const fetchMessages = async (req, res, next) => {
   const gid = req.params.gid;
