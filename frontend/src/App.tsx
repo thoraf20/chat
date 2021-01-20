@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useSelector } from 'react-redux';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// Local Imports
+import AppView from '../../AppView/index';
+import AuthView from './views/AuthView/index';
+
+interface IRootState {
+  auth: {
+    isLogged: boolean;
+    id: string | null;
+    username: string | null;
+    image: string | null;
+    token: string | null;
+  };
 }
+
+const App: React.FC = () => {
+  const isAuth = useSelector((state: IRootState) => state.auth.isLogged);
+
+  return isAuth ? <AppView /> : <AuthView />;
+};
 
 export default App;
